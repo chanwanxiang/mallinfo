@@ -1,3 +1,5 @@
+# 开发环境配置文件
+
 """
 Django settings for mall project.
 
@@ -52,9 +54,24 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'mall.urls'
 
 TEMPLATES = [
+    # {
+    #     'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    #     'DIRS': [],
+    #     'APP_DIRS': True,
+    #     'OPTIONS': {
+    #         'context_processors': [
+    #             'django.template.context_processors.debug',
+    #             'django.template.context_processors.request',
+    #             'django.contrib.auth.context_processors.auth',
+    #             'django.contrib.messages.context_processors.messages',
+    #         ],
+    #     },
+    # },
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 配置jinja2模板引擎
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        # 配置模板文件加载路径
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +80,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            # 补充jiaja2模板引擎环境
+            'environment': 'mall.utils.jinja2_env.jinja2_environment',
         },
     },
 ]
