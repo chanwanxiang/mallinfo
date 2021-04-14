@@ -13,3 +13,8 @@ class RegisterView(View):
 
     def post(self, request):
         # 实现用户注册业务逻辑
+        # 接收参数
+        value = request.POST.get('key')
+        # 校验参数
+        # 保存注册数据
+        pass
