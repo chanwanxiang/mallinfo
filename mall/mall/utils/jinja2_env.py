@@ -9,7 +9,7 @@ def jinja2_environment(**options):
     # 自定义{{ static('静态文件相对路径') }}和{{ url('路由命名空间') }}
     env.globals.update({
         # 获取静态文件前缀
-        'static': staticfiles_storage,
+        'static': staticfiles_storage.url,
         # 反向解析
         'url': reverse,
     })
