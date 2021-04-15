@@ -1,7 +1,12 @@
-from django.shortcuts import render
 from django.views import View
+from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
+
+# 函数视图
+def sample(request):
+    return HttpResponse('sample')
 
 # 类视图
 class RegisterView(View):
