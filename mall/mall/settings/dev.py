@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # 'mall.apps.users',
     # 追加到包路径后注册子应用
     'users',
+    'contents',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,7 @@ CACHES = {
     # 默认
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://47.98.188.248/0",
+        "LOCATION": "redis://47.98.188.248:6379/0",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -135,7 +136,7 @@ CACHES = {
     # session
     "session": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://47.98.188.248/1",
+        "LOCATION": "redis://47.98.188.248:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -143,7 +144,7 @@ CACHES = {
     # 验证码
     "verify_code": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://47.98.188.248/2",
+        "LOCATION": "redis://47.98.188.248:6379/2",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }

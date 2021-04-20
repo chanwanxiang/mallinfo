@@ -1,10 +1,12 @@
 import re
 
 from django.views import View
-from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseForbidden
-# from users.models import User
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseForbidden
+from users.models import User
 from django.db import DatabaseError
+from django.urls import reverse
+from django.contrib.auth import login
 
 # Create your views here.
 
@@ -52,10 +54,16 @@ class RegisterView(View):
 
         # 保存注册数据(注册业务核心)
         try:
-            User.objects.create_user(username=username, password=password, mobile=mobile)
+            user = User.objects.create_user(username=username, password=password, mobile=mobile)
         except DatabaseError as errorms:
             print(errorms)
             return render(request, 'register.html', {'register_errormsg':'注册失败'})
 
+        # 实现状态保存
+        login(request, user)
+
         # 响应注册结果(重定向到首页)
-        return HttpResponse('注册成功,重定向到首页')
+        # return redirect('/')
+
+        # reverse通过命名空间动态获取请求路径
+        return redirect(reverse('contents:index'))
