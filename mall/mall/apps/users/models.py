@@ -5,11 +5,11 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     # 自定义用户模型类
-    phone = models.CharField(max_length=11,unique=True,verbose_name='手机号')
+    mobile = models.CharField(max_length=11, unique=True, verbose_name='用户的手机号')
 
     class Meta:
         # 自定义表名
-        db_table = 'tb_user'
+        db_table = 'user_info'
         # 在Admin站点中可以看到中文
         verbose_name = '用户'
         verbose_name_plural = verbose_name
