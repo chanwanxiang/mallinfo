@@ -20,14 +20,18 @@ class UsernameCountView(View):
     def get(self, request, username):
         # param     username 用户名
         # return    json
-
         # 接受和校验参数(路径参数优点)
         # 实现主体业务逻辑,使用username查询对应记录条数(filter返回的是满足条件的结果集)
         count = User.objects.filter(username=username).count()
 
         return JsonResponse({'code': RETCODE.OK, 'errormsg': 'OK', 'count': count})
 
-        pass
+class MobileCountView(View):
+    # 判断手机号是否重复注册
+    def get(self, request, mobile):
+        count = User.objects.filter(mobile=mobile).count()
+
+        return JsonResponse({'code': RETCODE.OK, 'errormsg': 'OK', 'count': count})
 
 # 类视图
 class RegisterView(View):
