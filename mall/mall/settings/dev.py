@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# 注册应用需要模板迁移,验证功能无需依赖
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +47,10 @@ INSTALLED_APPS = [
     # 'mall.apps.users',
     # 追加到包路径后注册子应用
     'users',
+    # 首页广告模块
     'contents',
+    # 验证模块
+    'verifications',
 ]
 
 MIDDLEWARE = [
