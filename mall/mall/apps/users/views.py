@@ -2,17 +2,32 @@ import re
 
 from django.views import View
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseForbidden
+from django.http import JsonResponse , HttpResponse, HttpResponseForbidden
 from users.models import User
 from django.db import DatabaseError
 from django.urls import reverse
 from django.contrib.auth import login
+from mall.utils.response_code import RETCODE
 
 # Create your views here.
 
 # 函数视图
 def sample(request):
     return HttpResponse('sample')
+
+class UsernameCountView(View):
+    # 判断用户名是否重复注册
+    def get(self, request, username):
+        # param     username 用户名
+        # return    json
+
+        # 接受和校验参数(路径参数优点)
+        # 实现主体业务逻辑,使用username查询对应记录条数(filter返回的是满足条件的结果集)
+        count = User.objects.filter(username=username).count()
+
+        return JsonResponse({'code': RETCODE.OK, 'errormsg': 'OK', 'count': count})
+
+        pass
 
 # 类视图
 class RegisterView(View):
