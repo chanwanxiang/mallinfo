@@ -13,7 +13,7 @@ from PIL import ImageFilter
 from PIL.ImageDraw import Draw
 from PIL.ImageFont import truetype
 
-
+# 贝塞尔曲线
 class Bezier:
     def __init__(self):
         self.tsequence = tuple([t / 20.0 for t in range(21)])

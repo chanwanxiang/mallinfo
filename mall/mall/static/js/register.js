@@ -37,7 +37,7 @@ let vm = new Vue({
         // 生成图形验证码的方法：封装的思想，代码复用
         generate_image_code() {
             this.uuid = generateUUID();
-            this.image_code_url = '/image_codes/' + this.uuid + '/';
+            this.image_code_url = '/image_code/' + this.uuid + '/';
         },
         // 校验用户名
         check_username() {

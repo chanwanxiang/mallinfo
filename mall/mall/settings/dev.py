@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'users',
     # 首页广告模块
     'contents',
-    # 验证模块
+    # 验证模块,注册一般需要模板或者迁移操作,验证可以注册也可以不注册
     'verifications',
 ]
 
