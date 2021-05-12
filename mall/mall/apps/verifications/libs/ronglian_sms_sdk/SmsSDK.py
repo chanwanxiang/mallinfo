@@ -17,6 +17,7 @@ import time
 import json
 import traceback
 
+
 class SmsSDK:
     """短信SDK"""
 
@@ -109,5 +110,3 @@ class SmsSDK:
         print('Request url: ', url)
         print('Request headers: ', headers)
         print('Request body: ', body)
-
-
